@@ -11,12 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python-version }}
-
+    
     - name: Install strix
       run: |
         python -m pip install --upgrade pip
@@ -26,4 +21,4 @@ jobs:
       env:
         STRIX_LLM: ${{ secrets.STRIX_LLM }}
         LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-      run: strix -n -t ./ --scan-mode quick
+      run: strix --target ./
