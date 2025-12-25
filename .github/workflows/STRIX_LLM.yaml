@@ -6,13 +6,20 @@ on:
 jobs:
   security-scan:
     runs-on: windows-latest
+
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
       - name: Install Strix
         run: |
-          pip install pipx
-          pipx install strix-agent
+          python -m pip install --upgrade pip
+          pip install strix-agent
 
       - name: Run Strix
         env:
