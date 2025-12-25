@@ -10,12 +10,12 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Install Strix
-        run: pip install pipx
-             pipx install strix-agent
+        run: |
+          pip install pipx
+          pipx install strix-agent
 
       - name: Run Strix
         env:
           STRIX_LLM: ${{ secrets.STRIX_LLM }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-
         run: strix -n -t ./ --scan-mode quick
