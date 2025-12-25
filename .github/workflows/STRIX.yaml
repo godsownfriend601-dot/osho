@@ -17,13 +17,13 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
+    - name: Install strix
       run: |
         python -m pip install --upgrade pip
-        pip install pylint
-        if (Test-Path requirements.txt) { pip install -r requirements.txt }
+        pip install strix-agent
 
-    - name: Analysing the code with pylint
-      run: |
-        $pyFiles = git ls-files '*.py'
-        if ($pyFiles) { pylint $pyFiles }
+    - name: Run Strix
+      env:
+        STRIX_LLM: ${{ secrets.STRIX_LLM }}
+        LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+      run: strix -n -t ./ --scan-mode quick
